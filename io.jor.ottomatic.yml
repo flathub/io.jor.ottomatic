@@ -1,10 +1,8 @@
 app-id: io.jor.ottomatic
 runtime: org.freedesktop.Platform
-runtime-version: "21.08"
+runtime-version: "22.08"
 sdk: org.freedesktop.Sdk
 command: OttoMatic
-rename-desktop-file: ottomatic.desktop
-rename-icon: ottomatic-desktopicon
 
 finish-args:
   - --socket=x11
@@ -18,23 +16,21 @@ modules:
     sources:
       - type: git
         url: https://github.com/jorio/OttoMatic.git
-        tag: 4.0.0
-        commit: 48becd8e8edc51c4e55b5b79b4019b859d762dd2
+        tag: 4.0.1
+        commit: 197b5d45869124c29a8161d863f186f27cf4db0f
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
       - type: file
         path: ottomatic_launcher.sh
-      - type: file
-        path: io.jor.ottomatic.metainfo.xml
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
     no-make-install: true
     build-commands:
       - install -D ottomatic_launcher.sh ${FLATPAK_DEST}/bin/OttoMatic
       - mkdir -p ${FLATPAK_DEST}/ottomatic
-      - install -D ${FLATPAK_BUILDER_BUILDDIR}/OttoMatic ${FLATPAK_DEST}/ottomatic/OttoMatic
       - cp -r ./Data ${FLATPAK_DEST}/ottomatic
-      - install -D ./packaging/ottomatic.desktop ${FLATPAK_DEST}/share/applications/ottomatic.desktop
-      - install -D ./packaging/ottomatic-desktopicon.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/ottomatic-desktopicon.png
-      - install -D ./io.jor.ottomatic.metainfo.xml ${FLATPAK_DEST}/share/metainfo/io.jor.ottomatic.metainfo.xml
+      - install -D ${FLATPAK_BUILDER_BUILDDIR}/OttoMatic    ${FLATPAK_DEST}/ottomatic/OttoMatic
+      - install -D ./packaging/io.jor.ottomatic.desktop     ${FLATPAK_DEST}/share/applications/io.jor.ottomatic.desktop
+      - install -D ./packaging/io.jor.ottomatic.png         ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/io.jor.ottomatic.png
+      - install -D ./packaging/io.jor.ottomatic.appdata.xml ${FLATPAK_DEST}/share/metainfo/io.jor.ottomatic.appdata.xml
