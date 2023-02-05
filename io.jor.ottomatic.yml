@@ -5,7 +5,8 @@ sdk: org.freedesktop.Sdk
 command: OttoMatic
 
 finish-args:
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --socket=pulseaudio
   - --device=dri
   - --share=ipc
@@ -16,8 +17,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/jorio/OttoMatic.git
-        tag: 4.0.1
-        commit: 197b5d45869124c29a8161d863f186f27cf4db0f
+        #tag: 4.0.1
+        commit: ad36104030d17b28968efdd28db017f1c72e6198
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
