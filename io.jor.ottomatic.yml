@@ -1,6 +1,6 @@
 app-id: io.jor.ottomatic
 runtime: org.freedesktop.Platform
-runtime-version: "22.08"
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: OttoMatic
 
@@ -18,10 +18,11 @@ modules:
       - type: git
         url: https://github.com/jorio/OttoMatic.git
         #tag: 4.0.1
-        commit: ad36104030d17b28968efdd28db017f1c72e6198
+        commit: 197b5d45869124c29a8161d863f186f27cf4db0f
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
+        tag: 4.0.1
       - type: file
         path: ottomatic_launcher.sh
     config-opts:
