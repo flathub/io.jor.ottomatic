@@ -17,8 +17,9 @@ modules:
     sources:
       - type: git
         url: https://github.com/jorio/OttoMatic.git
+        tag: 4.0.1
         #tag: 4.0.1
-        commit: b967d3bcf90447a2866090e39b7b77d78be5a0cc
+        commit: 197b5d45869124c29a8161d863f186f27cf4db0f
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
